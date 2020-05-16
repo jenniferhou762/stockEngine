@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% from "bootstrap/pagination.html" import render_pagination %}
+{% block mycontent %}
+<div class="jumbotron">
+  <div class="row">
+    {%- if user.avatar_url() -%}
+    <div class="col-md-3 animated bounceIn">
+      {%- if current_user.id == user.id or current_user.can(Permission.UPDATE_OTHERS_INFORMATION) -%}
+      <a href="{{ url_for('user.avatar',user_id=user.id) }}" data-toggle="tooltip"
+         data-placement="bottom" title="change avatar">
+        <div class="avatar avatar-large"
+             style="background-image: url({{ user.avatar_url() }})"></div>
+      </a>
+      {%- else -%}
+      <div class="avatar avatar-large"
+           style="background-image: url({{ user.avatar_url() }})"></div>
+      {%- endif -%}
+    </div>
+    {%- endif -%}
+    <div class="col-md-6 col-md-offset-1 animated fadeIn">
+      <h1 class="page-header">{{ user.name }}
+        {% if user.headline %}
+        <small>{{ user.headline }}</small>
+        {% endif %}
+
+      </h1>
+
+      <p>Email: {{ user.email }}</p>
+      {% if user.major %}
+      <p>major: {{ user.major }}</p>
+      {% endif %}
+      <p>createdAt: {{ user.member_since.strftime('%d %B %Y - %H:%M:%S') }}</p>
+      {% if current_user.id==user.id or current_user.can(Permission.UPDATE_OTHERS_INFORMATION) %}
+      <a class="btn btn-info" href="{{ url_for('user.edit',user_id=user.id) }}">edit</a>
+      {% endif %}
+      {% if current_user.id==user.id %}
+      <a class="btn btn-danger" href="{{ url_for('auth.change_password',user_id=user.id) }}">change password</a>
+      {% endif %}
+
+    </div>
+  </div>
+
+
+  {% if user.about_me_html %}
+  <h2>
+    <small>about me</small>
+  </h2>
+  {{ user.about_me_html|safe }}
+  {% elif user.about_me %}
+  <p>{{ user.about_me }}</p>
+  {% endif %}
+
+
+</div>
+
+{% endblock %}
+{% block scripts %}
+{{ super() }}
+<script>
+ $('[data-toggle="tooltip"]').tooltip()
+</script>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block mycontent %}
+    <div class="row animated fadeInDown">
+        <div class="col-sm-8 col-sm-offset-2">
+            {%- if current_user.is_authenticated -%}
+                <h2>Make a new investment</h2>
+                <form class="form form-horizontal" method="POST">
+                    <div class="form-group">
+                        <label for="amountInput">Investment Amount: $</label>
+                        <input type="number" class="form-control" name="amountInput" id="amountInput">
+                        <small id="amountHelp" class="form-text text-muted">* Minimum investment is $5000 USD</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="strategiesSelect">Select Investment Strategies: </label>
+                        <select multiple class="form-control" name="strategiesSelect" id="strategiesSelect">
+                          <option>Ethical Investing</option>
+                          <option>Growth Investing</option>
+                          <option>Index Investing</option>
+                          <option>Quality Investing</option>
+                          <option>Value Investing</option>
+                        </select>
+                        <small id="strategiesHelp" class="form-text text-muted">* Hold control/command to select multiple strategies. Select up to 2 strategies</small>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            {%- else -%}
+                <h2>Welcome to Stock Portfolio Suggestion Engine</h2>
+                <h4>Please use the button on the right corner to login...</h4>
+            {%- endif -%}
+            
+            
+        </div>
+    </div>
+    
+{% endblock %}
