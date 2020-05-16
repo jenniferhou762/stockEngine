@@ -1,5 +1,3 @@
-<p align="center"><img src="app/static/img/horizontal.png" alt="StockPortfolioSuggestionEngine" height="200px"></p>
-
 # Stock Portfolio Suggestion Engine
 
 ## Installation
