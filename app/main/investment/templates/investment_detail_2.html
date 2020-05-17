@@ -1,0 +1,71 @@
+{%- extends "base.html" -%}
+{%- from "bootstrap/pagination.html" import render_pagination -%}
+{%- import "bootstrap/wtf.html" as wtf -%}
+{%- block mycontent -%}
+    <div class="well well-lg">
+	
+		<h1>Stock Suggestion Output 2</h1>
+
+		<h2>Let's start investing!</h2>
+
+		Time: {{time}} <br><br><br>
+
+
+		<h4>Strategy 1: {{strategy1}}</h4> 
+
+		Portfolio Value: ${{portfoliovalue1}} <br>
+		Money Amount Returned: ${{returnedmoney1}} <br><br><br>
+
+
+		{{stockonename1}} <br>
+		Symbol: {{stockonesymbol1}} <br>
+		Price: ${{stockoneprice1}} <br>
+		Number of shares bought: {{stockonesharesbought1}} <br>
+		Total Shares Value: ${{stockonesharestotalvalue1}} <br><br><br>
+
+
+		{{stocktwoname1}}<br>
+		Symbol: {{stocktwosymbol1}} <br>
+		Price: ${{stocktwoprice1}} <br>
+		Number of shares bought: {{stocktwosharesbought1}} <br>
+		Total Shares Value: ${{stocktwosharestotalvalue1}} <br><br><br>
+
+			
+		{{stockthreename1}}<br>
+		Symbol: {{stockthreesymbol1}} <br>
+		Price: ${{stockthreeprice1}} <br>
+		Number of shares bought: {{stockthreesharesbought1}} <br>
+		Total Shares Value: ${{stockthreesharestotalvalue1}} <br><br><br>
+			
+
+
+
+		<h4>Strategy 2: {{strategy2}}</h4> 
+
+		Portfolio Value: ${{portfoliovalue2}} <br>
+		Money Amount Returned: ${{returnedmoney2}} <br><br><br>
+
+
+		{{stockonename2}} <br>
+		Symbol: {{stockonesymbol2}} <br>
+		Price: ${{stockoneprice2}} <br>
+		Number of shares bought: {{stockonesharesbought2}} <br>
+		Total Shares Value: ${{stockonesharestotalvalue2}} <br><br><br>
+
+
+		{{stocktwoname2}}<br>
+		Symbol: {{stocktwosymbol2}} <br>
+		Price: ${{stocktwoprice2}} <br>
+		Number of shares bought: {{stocktwosharesbought2}} <br>
+		Total Shares Value: ${{stocktwosharestotalvalue2}} <br><br><br>
+
+			
+		{{stockthreename2}}<br>
+		Symbol: {{stockthreesymbol2}} <br>
+		Price: ${{stockthreeprice2}} <br>
+		Number of shares bought: {{stockthreesharesbought2}} <br>
+		Total Shares Value: ${{stockthreesharestotalvalue2}} <br><br><br>
+
+	</div>
+
+{%- endblock -%}
