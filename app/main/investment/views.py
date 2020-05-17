@@ -33,6 +33,7 @@ def detail(investment_id):
     print("strategy: ", strategy)
 
     strategiesArray = strategy.split(",")
+    print(strategiesArray)
     
     numberofStrategies = int(len(strategiesArray))
 
@@ -79,19 +80,19 @@ def detail(investment_id):
 
 def stocks_selector_based_on_strategy(strategyName):
 
-    if strategyName == "Ethical":
+    if strategyName == "Ethical Investing":
         return ["AAPL", "ADBE", "NSRGY"]
 
-    elif strategyName == "Index":
+    elif strategyName == "Index Investing":
         return ["VTI", "IXUS", "ILTB"]
 
-    elif strategyName == "Growth":
+    elif strategyName == "Growth Investing":
         return ["VUG", "SPYG", "IWF"]
 
-    elif strategyName == "Value":
+    elif strategyName == "Value Investing":
         return ["ALB", "BTI", "CVS"]
 
-    elif strategyName == "Quality":
+    elif strategyName == "Quality Investing":
         return ["MSFT", "PEP", "NKE"]
 
 
