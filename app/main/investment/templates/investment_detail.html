@@ -2,43 +2,64 @@
 {%- from "bootstrap/pagination.html" import render_pagination -%}
 {%- import "bootstrap/wtf.html" as wtf -%}
 {%- block mycontent -%}
-    <div class="well well-lg">
-	
-		<h1>Stock Suggestion Output</h1>
+<div class="well well-lg">
 
-		<h2>Let's start investing!</h2>
+  <h1>Stock Suggestion Output</h1>
 
-		Time: {{PortfolioCombinedInfo["time"]}} <br><br><br>
+  Time: {{PortfolioCombinedInfo["time"]}} <br><br><br>
 
 
-		<h4>Strategy 1: {{PortfolioCombinedInfo["strategy"]}}</h4> 
+  <h4>Strategy 1: {{PortfolioCombinedInfo["strategy"]}}</h4>
 
-		Portfolio Value: ${{PortfolioCombinedInfo["portfoliovalue"]}} <br>
-		Money Amount Returned: ${{PortfolioCombinedInfo["returnedmoney"]}} <br><br><br>
-
-
-		{{PortfolioCombinedInfo["stockonename"]}} <br>
-		Symbol: {{PortfolioCombinedInfo["stockonesymbol"]}} <br>
-		Price: ${{PortfolioCombinedInfo["stockoneprice"]}} <br>
-		Number of shares bought: {{PortfolioCombinedInfo["stockonesharesbought"]}} <br>
-		Total Shares Value: ${{PortfolioCombinedInfo["stockonesharestotalvalue"]}} <br><br><br>
+  Portfolio Value: ${{PortfolioCombinedInfo["portfoliovalue"]}} <br>
+  Money Amount Returned: ${{PortfolioCombinedInfo["returnedmoney"]}} <br><br><br>
 
 
-		{{PortfolioCombinedInfo["stocktwoname"]}}<br>
-		Symbol: {{PortfolioCombinedInfo["stocktwosymbol"]}} <br>
-		Price: ${{PortfolioCombinedInfo["stocktwoprice"]}} <br>
-		Number of shares bought: {{PortfolioCombinedInfo["stocktwosharesbought"]}} <br>
-		Total Shares Value: ${{PortfolioCombinedInfo["stocktwosharestotalvalue"]}} <br><br><br>
-
-			
-		{{PortfolioCombinedInfo["stockthreename"]}}<br>
-		Symbol: {{PortfolioCombinedInfo["stockthreesymbol"]}} <br>
-		Price: ${{PortfolioCombinedInfo["stockthreeprice"]}} <br>
-		Number of shares bought: {{PortfolioCombinedInfo["stockthreesharesbought"]}} <br>
-		Total Shares Value: ${{PortfolioCombinedInfo["stockthreesharestotalvalue"]}} <br><br><br>
-	
+  {{PortfolioCombinedInfo["stockonename"]}} <br>
+  Symbol: {{PortfolioCombinedInfo["stockonesymbol"]}} <br>
+  Price: ${{PortfolioCombinedInfo["stockoneprice"]}} <br>
+  Number of shares bought: {{PortfolioCombinedInfo["stockonesharesbought"]}} <br>
+  Total Shares Value: ${{PortfolioCombinedInfo["stockonesharestotalvalue"]}} <br><br><br>
 
 
-	</div>
+  {{PortfolioCombinedInfo["stocktwoname"]}}<br>
+  Symbol: {{PortfolioCombinedInfo["stocktwosymbol"]}} <br>
+  Price: ${{PortfolioCombinedInfo["stocktwoprice"]}} <br>
+  Number of shares bought: {{PortfolioCombinedInfo["stocktwosharesbought"]}} <br>
+  Total Shares Value: ${{PortfolioCombinedInfo["stocktwosharestotalvalue"]}} <br><br><br>
+
+
+  {{PortfolioCombinedInfo["stockthreename"]}}<br>
+  Symbol: {{PortfolioCombinedInfo["stockthreesymbol"]}} <br>
+  Price: ${{PortfolioCombinedInfo["stockthreeprice"]}} <br>
+  Number of shares bought: {{PortfolioCombinedInfo["stockthreesharesbought"]}} <br>
+  Total Shares Value: ${{PortfolioCombinedInfo["stockthreesharestotalvalue"]}} <br><br><br>
+
+
+  Symbol: {{PortfolioCombinedInfo.stocktwosymbol}} <br>
+  Price: {{PortfolioCombinedInfo.stocktwoprice}} <br>
+  Number of shares bought: {{PortfolioCombinedInfo.stocktwosharesbought}} <br>
+  Total Shares Value: {{PortfolioCombinedInfo.stocktwosharestotalvalue}} <br> <br>
+
+  <h3>Trends</h3>
+
+  <table class="table">
+    <tr>
+      <td>Symbo</td>
+      {% for date in PortfolioCombinedInfo.histories.date %}
+      <td>{{date}} </td>
+      {% endfor %}
+    </tr>
+    {% for symbo, histories in PortfolioCombinedInfo.histories.data.items() %}
+    <tr>
+      <td>{{symbo}}</td>
+      {% for date, history in histories.items() %}
+      <td>{{history}}</td>
+      {% endfor %}
+    </tr>
+    {% endfor %}
+  </table>
+
+</div>
 
 {%- endblock -%}
