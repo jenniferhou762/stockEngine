@@ -17,6 +17,12 @@ def index():
     elif request.method == 'POST':
         amount = request.form.get('amountInput')
         strategies_list = request.form.getlist('strategiesSelect')
+        if int(amount) < 5000:
+            flash(u'Amount can not be less than 5000', 'danger')
+            return render_template("index.html")
+        if len(strategies_list) > 2:
+            flash(u'Choose at most 2 strategies', 'danger')
+            return render_template("index.html")
         strategies = ""
         for i in range(len(strategies_list)):
             if i == 0:
@@ -32,8 +38,10 @@ def index():
             )
         db.session.add(new_investment)
         db.session.commit()
-        flash(u'investment %s already added!' % new_investment.id, 'success')
+        flash(u'Investment added!', 'success')
         return render_template("index.html")
+
+        
 
 
 

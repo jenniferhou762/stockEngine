@@ -8,10 +8,10 @@
     <table class="table table-striped table-hover">
         <thead>
         <tr>
-            <th>id</th>
-            <th class="hidden-xs">amount</th>
-            <th class="hidden-xs">strategies</th>
-            <th class="hidden-xs">investAt</th>
+            <th>Id</th>
+            <th class="hidden-xs">Amount</th>
+            <th class="hidden-xs">Strategies</th>
+            <th class="hidden-xs">Invest At</th>
         </tr>
         </thead>
         <tbody>
@@ -20,7 +20,7 @@
                 <td><a href="{{ url_for('investment.detail',investment_id=investment.id) }}">{{ investment.id }}</a></td>
                 <td>{{ investment.amount }}</td>
                 <td>{{ investment.strategies }}</td>
-                <td>{{ investment.investAt }}</td>
+                <td>{{ investment.investAt.strftime('%Y-%m-%d') }}</td>
             </tr>
         {% endfor %}
         </tbody>
