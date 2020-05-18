@@ -71,7 +71,8 @@ def detail(investment_id):
                                  "stocktwosharestotalvalue2": P2["stocktwosharestotalvalue"], "stockthreename2": P2["stockthreename"],
                                  "stockthreesymbol2": P2["stockthreesymbol"], "stockthreeprice2": P2["stockthreeprice"],
                                  "stockthreesharesbought2": P2["stockthreesharesbought"],
-                                 "stockthreesharestotalvalue2": P2["stockthreesharestotalvalue"]}
+                                 "stockthreesharestotalvalue2": P2["stockthreesharestotalvalue"],
+                                 "histories1":P1["histories"], "histories2":P2["histories"]}
 
         return render_template("investment_detail_2.html", PortfolioCombinedInfo=PortfolioCombinedInfo)
 
