@@ -47,8 +47,8 @@ def detail(investment_id):
 
     elif numberofStrategies == 2:
 
-        P1 = return_portfolio_combined_info(strategiesArray[0], investAmount)
-        P2 = return_portfolio_combined_info(strategiesArray[1], investAmount)
+        P1 = return_portfolio_combined_info(strategiesArray[0], (investAmount/2))
+        P2 = return_portfolio_combined_info(strategiesArray[1], (investAmount/2))
 
 
         PortfolioCombinedInfo = {"strategy1": P1["strategy"], "portfoliovalue1": P1["portfoliovalue"],
