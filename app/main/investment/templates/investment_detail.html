@@ -36,16 +36,11 @@
   Total Shares Value: ${{PortfolioCombinedInfo["stockthreesharestotalvalue"]}} <br><br><br>
 
 
-  Symbol: {{PortfolioCombinedInfo.stocktwosymbol}} <br>
-  Price: {{PortfolioCombinedInfo.stocktwoprice}} <br>
-  Number of shares bought: {{PortfolioCombinedInfo.stocktwosharesbought}} <br>
-  Total Shares Value: {{PortfolioCombinedInfo.stocktwosharestotalvalue}} <br> <br>
-
   <h3>Trends</h3>
 
   <table class="table">
     <tr>
-      <td>Symbo</td>
+      <td>Symbol</td>
       {% for date in PortfolioCombinedInfo.histories.date %}
       <td>{{date}} </td>
       {% endfor %}
