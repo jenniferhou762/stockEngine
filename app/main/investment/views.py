@@ -125,19 +125,20 @@ def return_portfolio_combined_info(strategy, investAmount):
     S2Info = return_stock_information(stockSelectionArray[1], investAmount)
     S3Info = return_stock_information(stockSelectionArray[2], investAmount)
 
-    histories = {}
+    histories = []
+
     for stock in [S1Info, S2Info, S3Info]:
-        histories[stock[1]] = get_history(stock[1], stock[3])
+        histories.append([stock[1], get_history(stock[1], stock[3])])
 
     total = {}
-    for stock in stockSelectionArray:
-        for date in histories[stock].keys():
+    for i in range(0, 3):
+        for date in histories[i][1].keys():
             if date not in total:
                 total[date] = 0
 
-            total[date] += histories[stock][date]
+            total[date] += histories[i][1][date]
 
-    histories['total'] = total
+    histories.append(['total', total])
 
     portfolioValue = round((S1Info[4] + S2Info[4] + S3Info[4]), 2)
     returnedMoney = round((investAmount - portfolioValue), 2)
@@ -150,7 +151,7 @@ def return_portfolio_combined_info(strategy, investAmount):
                              "stocktwosharesbought": S2Info[3], "stocktwosharestotalvalue": S2Info[4],
                              "stockthreename": S3Info[0], "stockthreesymbol": S3Info[1], "stockthreeprice": S3Info[2],
                              "stockthreesharesbought": S3Info[3], "stockthreesharestotalvalue": S3Info[4],
-                             "histories": {"date": histories['total'].keys(),
+                             "histories": {"date": histories[0][1].keys(),
                                            "data": histories}}
 
     return PortfolioCombinedInfo

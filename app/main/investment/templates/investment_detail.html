@@ -45,11 +45,11 @@
       <td>{{date}} </td>
       {% endfor %}
     </tr>
-    {% for symbo, histories in PortfolioCombinedInfo.histories.data.items() %}
+    {% for history in PortfolioCombinedInfo.histories.data %}
     <tr>
-      <td>{{symbo}}</td>
-      {% for date, history in histories.items() %}
-      <td>{{history}}</td>
+      <td>{{history[0]}}</td>
+      {% for date, data in history[1].items() %}
+      <td>{{data}}</td>
       {% endfor %}
     </tr>
     {% endfor %}

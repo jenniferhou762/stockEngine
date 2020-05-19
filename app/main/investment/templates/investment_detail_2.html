@@ -45,11 +45,11 @@
       <td>{{date}} </td>
       {% endfor %}
     </tr>
-    {% for symbo, histories in PortfolioCombinedInfo.histories1.data.items() %}
+    {% for history in PortfolioCombinedInfo.histories1.data %}
     <tr>
-      <td>{{symbo}}</td>
-      {% for date, history in histories.items() %}
-      <td>{{history}}</td>
+      <td>{{history[0]}}</td>
+      {% for date, data in history[1].items() %}
+      <td>{{data}}</td>
       {% endfor %}
     </tr>
     {% endfor %}
@@ -86,23 +86,20 @@
   <h3>Trends</h3>
   <table class="table">
     <tr>
-      <td>Symbo</td>
+      <td>Symbol</td>
       {% for date in PortfolioCombinedInfo.histories2.date %}
       <td>{{date}} </td>
       {% endfor %}
     </tr>
-    {% for symbo, histories in PortfolioCombinedInfo.histories2.data.items() %}
+    {% for history in PortfolioCombinedInfo.histories2.data %}
     <tr>
-      <td>{{symbo}}</td>
-      {% for date, history in histories.items() %}
-      <td>{{history}}</td>
+      <td>{{history[0]}}</td>
+      {% for date, data in history[1].items() %}
+      <td>{{data}}</td>
       {% endfor %}
     </tr>
     {% endfor %}
   </table>
-
-
-
 </div>
 
 {%- endblock -%}
